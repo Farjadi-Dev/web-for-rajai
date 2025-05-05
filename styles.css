@@ -1,0 +1,719 @@
+/* Custom styles */
+:root {
+    --primary-color: #6d28d9;  /* purple-700 */
+    --secondary-color: #4f46e5; /* indigo-600 */
+    --accent-color: #06b6d4;  /* teal-500 */
+    --background-color: #f9fafb; /* gray-50 */
+    --card-bg: #ffffff;
+    --text-color: #1f2937; /* gray-800 */
+    --border-color: #e5e7eb; /* gray-200 */
+    --hover-bg: #f3f4f6;  /* gray-100 */
+    --button-bg: #e5e7eb; /* gray-200 */
+    --button-bg-hover: #d1d5db; /* gray-300 */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --header-bg: linear-gradient(to right, #7c3aed, #4f46e5);
+    --footer-bg: #1f2937; /* gray-800 */
+    --footer-text: #f9fafb; /* gray-50 */
+    --answer-bg: #eef2ff; /* indigo-50 */
+    --question-bg: #f0fdfa; /* teal-50 */
+    --card-border: #e5e7eb; /* gray-200 */
+    --neutral-gray: #9ca3af; /* gray-400 */
+    --button-text: #ffffff;
+    --nav-button-bg: #e5e7eb; /* gray-200 */
+    --nav-button-text: #1f2937; /* gray-800 */
+    --search-result-border: #e5e7eb; /* gray-200 */
+    --link-color: #4f46e5; /* indigo-600 */
+    --light-text: #6b7280; /* gray-500 */
+    --question-icon-color: rgba(124, 58, 237, 0.6);
+    --chapter-icon-color: rgba(52, 211, 153, 0.6);
+}
+
+/* Dark mode */
+.dark-mode {
+    --primary-color: #8b5cf6;  /* purple-500 */
+    --secondary-color: #6366f1; /* indigo-500 */
+    --accent-color: #0891b2;  /* teal-600 */
+    --background-color: #1f2937; /* gray-800 */
+    --card-bg: #374151; /* gray-700 */
+    --text-color: #f9fafb; /* gray-50 */
+    --border-color: #4b5563; /* gray-600 */
+    --hover-bg: #374151;  /* gray-700 */
+    --button-bg: #4b5563; /* gray-600 */
+    --button-bg-hover: #6b7280; /* gray-500 */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --header-bg: linear-gradient(to right, #7c3aed, #4f46e5);
+    --footer-bg: #111827; /* gray-900 */
+    --footer-text: #f9fafb; /* gray-50 */
+    --answer-bg: #312e81; /* indigo-900 */
+    --question-bg: #134e4a; /* teal-900 */
+    --card-border: #4b5563; /* gray-600 */
+    --neutral-gray: #9ca3af; /* gray-400 */
+    --button-text: #ffffff;
+    --nav-button-bg: #4b5563; /* gray-600 */
+    --nav-button-text: #f9fafb; /* gray-50 */
+    --search-result-border: #4b5563; /* gray-600 */
+    --link-color: #8b5cf6; /* purple-500 */
+    --light-text: #9ca3af; /* gray-400 */
+    --dark-mode-text: #f3f4f6; /* gray-100 */
+    --question-icon-color: rgba(139, 92, 246, 0.6);
+    --chapter-icon-color: rgba(20, 184, 166, 0.6);
+}
+
+/* Ensure content fills minimum height and footer sticks to bottom */
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    flex: 1 0 auto;
+    padding-bottom: 40px;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: var(--footer-bg) !important;
+    color: var(--footer-text) !important;
+    padding: 1.5rem 0;
+    width: 100%;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+/* Make sure all text is visible in dark mode */
+.dark-mode .dark-text,
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .chapter-title,
+.dark-mode .chapter-description,
+.dark-mode .question-text,
+.dark-mode .answer-text,
+.dark-mode .result-title,
+.dark-mode .result-meta {
+    color: var(--text-color);
+}
+
+/* Header text in dark mode */
+.dark-mode header h1,
+.dark-mode header p {
+    color: black !important;
+}
+
+/* Specific elements that should be visible in dark mode */
+.dark-mode .dark-text,
+.dark-mode .card-bg p,
+.dark-mode .card-bg h2,
+.dark-mode .card-bg h3,
+.dark-mode .card-bg span,
+.dark-mode .question-container p,
+.dark-mode .question-container h2,
+.dark-mode .answer-container p,
+.dark-mode .answer-container h3,
+.dark-mode #results-container h3,
+.dark-mode #results-container h4,
+.dark-mode #results-container p {
+    color: var(--dark-mode-text) !important;
+}
+
+/* Chapter title in question page - center it and make it white in dark mode */
+.chapter-title {
+    color: var(--text-color);
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    margin-left: 15px;
+    position: relative;
+}
+
+.chapter-title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.dark-mode .chapter-title {
+    color: white !important;
+}
+
+/* Question button text in dark mode */
+.dark-mode .question-button {
+    color: white !important;
+}
+
+.dark-mode .question-button span {
+    color: white !important;
+}
+
+/* Don't change header and footer text */
+header h1, 
+header p {
+    color: white !important;
+}
+
+/* Fix footer background in dark mode */
+footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--footer-text) !important;
+    padding: 1.5rem 0;
+}
+
+footer .container {
+    max-width: 800px;
+}
+
+.dark-mode footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--footer-text) !important;
+}
+
+.dark-mode a.text-indigo-600 {
+    color: var(--link-color) !important;
+}
+
+/* Navigation buttons in dark mode */
+.dark-mode .dark-button {
+    background-color: var(--nav-button-bg) !important;
+    color: white !important;
+}
+
+.dark-mode .back-button {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Question and answer containers */
+.question-container {
+    background-color: var(--question-bg) !important;
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.question-container::before {
+    content: '?';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+    opacity: 0.5;
+}
+
+.dark-mode .question-container {
+    background-color: var(--question-bg) !important;
+    border-left-color: var(--accent-color);
+}
+
+.answer-container {
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: var(--answer-bg);
+    border-left: 4px solid var(--primary-color);
+}
+
+.answer-container::before {
+    content: '!';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.dark-mode .answer-container {
+    background-color: var(--answer-bg) !important;
+    border-left-color: var(--primary-color);
+}
+
+/* Search results in dark mode */
+.dark-mode #results-container > div {
+    background-color: var(--card-bg) !important;
+    border-color: var(--search-result-border) !important;
+}
+
+/* Logo animation - bouncing effect */
+.logo-atom {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    animation: logo-bounce 2s infinite ease-in-out;
+}
+
+@keyframes logo-bounce {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+    }
+    50% {
+        transform: translateY(-10px);
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+}
+
+/* Footer logo */
+.logo-atom-small {
+    transition: transform 0.3s ease;
+    animation: footer-float 3s infinite ease-in-out;
+}
+
+@keyframes footer-float {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+    }
+    50% {
+        transform: translateY(-5px);
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+    }
+}
+
+/* Static atom elements */
+.orbit-static, .nucleus-static, .electron-static {
+    transition: opacity 0.3s ease;
+}
+
+/* Add header layout styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    margin-left: 5px;
+}
+
+.header-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 450px;
+    margin: 0 20px;
+}
+
+/* Chapter cards */
+.chapter-card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-out;
+}
+
+.chapter-card:hover::before {
+    transform: scaleX(1);
+}
+
+.chapter-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chapter-card .bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+/* Make sure chapter card has space for the view button at bottom */
+.chapter-card .chapter-content {
+    flex: 1;
+}
+
+/* Align the "View Questions" buttons at the bottom */
+.chapter-card .view-questions-wrapper {
+    margin-top: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Question Buttons - updated with question mark icon */
+.question-button {
+    transition: all 0.3s ease;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 0.75rem;
+    padding-left: 2.25rem; /* Space for the icon */
+    font-weight: 500;
+    border-width: 2px;
+    font-size: 0.9rem;
+    border-color: var(--card-border);
+    position: relative;
+}
+
+.question-icon {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--question-icon-color);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.question-icon::before {
+    content: "?";
+}
+
+.question-button:hover .question-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.question-button:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* Questions container - display more per row */
+.questions-container {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .questions-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .questions-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .questions-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .questions-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+    .questions-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+/* Theme toggle - moved further into the corner */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+.theme-toggle .theme-icon-light,
+.theme-toggle .theme-icon-dark {
+    width: 24px;
+    height: 24px;
+    color: var(--text-color);
+    transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.theme-toggle .hidden {
+    display: none;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    transform: scale(1.05);
+}
+
+.back-to-top svg {
+    color: var(--text-color);
+}
+
+/* Mark highlight color */
+mark {
+    background-color: rgba(52, 211, 153, 0.2);
+    color: var(--accent-color);
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+.dark-mode mark {
+    color: var(--accent-color) !important;
+    background-color: rgba(20, 184, 166, 0.2) !important;
+}
+
+/* Responsive design - Update to show more chapter boxes per row on larger screens */
+@media (min-width: 1200px) {
+    #chapters-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    #chapters-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    #chapters-container {
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    }
+    
+    /* Make chapter boxes wider on extra large screens */
+    .chapter-card {
+        height: 100%;
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    /* Make question buttons 2 per row on mobile */
+    .questions-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .chapter-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Back button */
+.back-button {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+.back-button:hover {
+    background-color: var(--accent-color);
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation buttons */
+.flex.justify-between button {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.flex.justify-between button:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flex.justify-between button:last-child:hover {
+    transform: translateX(3px);
+}
+
+/* Loading animation */
+.loading {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.loading:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--card-border);
+    border-top-color: var(--primary-color);
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Question detail page specific styles for better spacing */
+.question-detail-page {
+    min-height: calc(100vh - 250px);
+}
+
+/* Modern enhancements */
+.view-questions {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+}
+
+.view-questions:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+.view-questions:hover:before {
+    left: 100%;
+}
+
+.view-questions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern input style */
+#search-input {
+    transition: all 0.3s ease;
+}
+
+#search-input:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+/* Header effects */
+.bg-gradient-to-r {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-gradient-to-r:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    pointer-events: none;
+} 
